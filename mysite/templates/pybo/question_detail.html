@@ -15,7 +15,6 @@
     </div>
     <!-- 답변 -->
     <h5 class="border-bottom my03 py-2">{{ question.answer_set.count }}개의 답변이 있습니다.</h5>
-    {% if question.answer_set %}
     {% for answer in question.answer_set.all %}
     <div class="card my-3">
         <div class="card-body">
@@ -28,9 +27,6 @@
         </div>
     </div>
     {% endfor %}
-    {% else %}
-    <div class="card-text" style="white-space: pre-line;">등록된 답변이 없습니다.</div>
-    {% endif %}
     <!-- 답변 등록 -->
     <form action="{% url 'pybo:answer_create' question.id %}" method="post" class="my-3">
         {% csrf_token %}
